@@ -80,21 +80,38 @@
 //     );
 // }
 
-import { useState } from "react"; // Perbaikan 1: Import useState
+    // const [searchTerm, setSearchTerm] = useState("");
+    // const [selectedTag, setSelectedTag] = useState("");
+
+    import { useState } from "react";
 import frameworkData from "./framework.json";
 
 export default function FrameworkListSearchFilter() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedTag, setSelectedTag] = useState("");
+    const [dataForm, setDataForm] = useState({
+        searchTerm: "",
+        selectedTag: "",
+    });
 
-    const _searchTerm = searchTerm.toLowerCase();
+    const handleChange = (evt) => {
+        const { name, value } = evt.target;
+        setDataForm({
+            ...dataForm,
+            [name]: value,
+        });
+    };
+
+    // Perbaikan pemanggilan variabel dari dataForm
+    const _searchTerm = dataForm.searchTerm.toLowerCase();
     
     const filteredFrameworks = frameworkData.filter((framework) => {
         const matchesSearch =
             framework.name.toLowerCase().includes(_searchTerm) ||
             framework.description.toLowerCase().includes(_searchTerm);
 
-        const matchesTag = selectedTag ? framework.tags.includes(selectedTag) : true;
+        // Panggil selectedTag dari dataForm
+        const matchesTag = dataForm.selectedTag 
+            ? framework.tags.includes(dataForm.selectedTag) 
+            : true;
 
         return matchesSearch && matchesTag;
     });
@@ -103,27 +120,27 @@ export default function FrameworkListSearchFilter() {
 
     return (
         <div className="max-w-6xl mx-auto p-8 bg-gray-50 min-h-screen">
-            {/* Header Section */}
             <div className="mb-10 text-center">
                 <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Framework Explorer</h1>
-                <p className="text-gray-600">Temukan library terbaik untuk proyek dokumentasi Anda</p>
+                <p className="text-gray-600">Temukan library terbaik untuk proyek Anda</p>
             </div>
 
-            {/* Filter Section */}
             <div className="flex flex-col md:flex-row gap-4 mb-10">
                 <div className="relative flex-grow">
                     <input
                         type="text"
+                        name="searchTerm" // WAJIB ADA: harus sama dengan key di state
                         placeholder="Cari nama atau deskripsi..."
-                        className="w-full p-4 pl-12 bg-white border border-gray-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full p-4 pl-12 bg-white border border-gray-200 rounded-2xl shadow-sm outline-none"
+                        onChange={handleChange}
                     />
                     <span className="absolute left-4 top-4 opacity-30 text-xl">🔍</span>
                 </div>
 
                 <select
-                    className="p-4 bg-white border border-gray-200 rounded-2xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none cursor-pointer min-w-[200px]"
-                    onChange={(e) => setSelectedTag(e.target.value)} // Perbaikan 2: Pakai setSelectedTag
+                    name="selectedTag" // WAJIB ADA: harus sama dengan key di state
+                    className="p-4 bg-white border border-gray-200 rounded-2xl shadow-sm outline-none cursor-pointer min-w-[200px]"
+                    onChange={handleChange}
                 >
                     <option value="">Semua Kategori</option>
                     {allTags.map((tag, index) => (
@@ -132,10 +149,10 @@ export default function FrameworkListSearchFilter() {
                 </select>
             </div>
 
-            {/* Grid List */}
+            {/* List Result */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredFrameworks.map((item) => (
-                    <div key={item.id} className="bg-white border border-gray-100 p-6 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                    <div key={item.id} className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col">
                         <div className="flex-grow">
                             <div className="flex flex-wrap gap-2 mb-4">
                                 {item.tags.map((tag, index) => (
@@ -145,35 +162,15 @@ export default function FrameworkListSearchFilter() {
                                 ))}
                             </div>
                             <h2 className="text-xl font-bold text-gray-800 mb-2">{item.name}</h2>
-                            <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-                                {item.description}
-                            </p>
+                            <p className="text-gray-600 text-sm mb-4 line-clamp-3">{item.description}</p>
                         </div>
-
-                        <div className="mt-6 pt-6 border-t border-gray-50">
-                            <div className="mb-4">
-                                <p className="text-xs text-gray-400 uppercase font-semibold tracking-wider">Dikembangkan oleh</p>
-                                <p className="text-sm font-bold text-gray-700">{item.details.developer} <span className="font-normal text-gray-400">({item.details.releaseYear})</span></p>
-                            </div>
-                            <a 
-                                href={item.details.officialWebsite} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="block text-center py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors text-sm"
-                            >
-                                Kunjungi Website Resmi
-                            </a>
+                        <div className="mt-6 pt-6 border-t border-gray-50 text-sm">
+                            <p className="text-gray-700 font-bold">{item.details.developer}</p>
+                            <a href={item.details.officialWebsite} target="_blank" className="text-blue-600 font-bold mt-2 inline-block">Kunjungi Website →</a>
                         </div>
                     </div>
                 ))}
             </div>
-
-            {/* Empty State */}
-            {filteredFrameworks.length === 0 && (
-                <div className="text-center py-20">
-                    <p className="text-gray-400 text-lg italic">Tidak ada framework yang sesuai dengan pencarian Anda.</p>
-                </div>
-            )}
         </div>
     );
 }
