@@ -1,7 +1,19 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 import { MdDashboard, MdListAlt, MdPeople } from "react-icons/md";
-import { FaPlus } from "react-icons/fa"; // Tambahkan import ini untuk icon plus
+import { FaPlus } from "react-icons/fa"; // <--- TAMBAHKAN BARIS INI
+
 
 export default function Sidebar() {
+
+    const menuClass = ({ isActive }) =>
+        `flex cursor-pointer items-center rounded-xl p-4  space-x-2
+        ${isActive ? 
+            "text-hijau bg-green-200 font-extrabold" : 
+            "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+        }`
+
     return (
         <div id="sidebar" className="w-64 bg-white h-screen flex flex-col border-r border-gray-100 p-6 sticky top-0">
             {/* Logo */}
@@ -15,22 +27,34 @@ export default function Sidebar() {
             </div>
 
             {/* List Menu */}
-            <div id="sidebar-menu" className="flex-1">
-                <ul id="menu-list" className="space-y-1">
-                  <li className="flex items-center gap-4 px-6 py-3 bg-green-100 text-green-600 rounded-xl font-semibold cursor-pointer">
-                      <MdDashboard className="text-xl" />
-                      <span>Dashboard</span>
-                  </li>
-                  <li className="flex items-center gap-4 px-6 py-3 text-gray-400 hover:bg-gray-50 hover:text-green-600 rounded-xl cursor-pointer transition-all">
-                      <MdListAlt className="text-xl" />
-                      <span>Orders</span>
-                  </li>
-                  <li className="flex items-center gap-4 px-6 py-3 text-gray-400 hover:bg-gray-50 hover:text-green-600 rounded-xl cursor-pointer transition-all">
-                      <MdPeople className="text-xl" />
-                      <span>Customers</span>
-                  </li>
-                </ul>
-            </div>
+<div id="sidebar-menu" className="flex-1">
+    <ul id="menu-list" className="space-y-1">
+        
+         {/* NavLink Dashboard */}
+                    <li>
+                        <NavLink to="/" className={menuClass}>
+                            <MdDashboard className="text-xl" />
+                            <span>Dashboard</span>
+                        </NavLink>
+                    </li>
+
+                    {/* NavLink Orders */}
+                    <li>
+                        <NavLink to="/orders" className={menuClass}>
+                            <MdListAlt className="text-xl" />
+                            <span>Orders</span>
+                        </NavLink>
+                    </li>
+
+                    {/* NavLink Customers */}
+                    <li>
+                        <NavLink to="/customers" className={menuClass}>
+                            <MdPeople className="text-xl" />
+                            <span>Customers</span>
+                        </NavLink>
+                    </li>
+    </ul>
+</div>
 
             {/* Footer (Mengikuti Tampilan Kode Kedua) */}
             <div id="sidebar-footer" className="mt-auto">
