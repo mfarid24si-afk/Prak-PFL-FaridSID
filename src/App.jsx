@@ -7,6 +7,8 @@ import Header from "./layouts/Header";
 import Dashboard from "./pages/dashboard";
 import Orders from "./pages/Orders";       // Import file baru tadi
 import Customers from "./pages/Customers"; // Import file baru tadi
+import NotFound from "./pages/NotFound"; // Import file baru tadi
+import ErrorPage from "./pages/ErrorPage";
 
 
 function App() {
@@ -20,6 +22,11 @@ function App() {
         <Header />
         
         <Routes>
+        <Route path="/400" element={<ErrorPage code="400" description="Bad Request: Permintaanmu nggak dipahami koki." image="/img/error-400.png" />} />
+        <Route path="/401" element={<ErrorPage code="401" description="Unauthorized: Kamu nggak punya kunci masuk sini." image="/img/error-401.png" />} />
+        <Route path="/403" element={<ErrorPage code="403" description="Forbidden: Area terlarang buat umum!" image="/img/error-403.png" />} />
+        <Route path="*" element={<ErrorPage code="404" description="Not Found: Halamannya lari entah ke mana." image="/img/error-404.png" />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Dashboard />} />
         <Route path="/Orders" element={<Orders />} />
         <Route path="/Customers" element={<Customers />} />

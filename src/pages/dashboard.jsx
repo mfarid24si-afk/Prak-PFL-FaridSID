@@ -5,7 +5,9 @@ export default function Dashboard() {
     return (
         <div id="dashboard-container" className="p-8 bg-gray-50 flex-1 min-h-screen overflow-y-auto">
             {/* 1. Header Halaman */}
-            <PageHeader />
+        <PageHeader
+        title="Dashboard" 
+        breadcrumb="Home"/>
 
             {/* 2. Statistik Utama (4 Kotak di Atas) */}
             <div id="dashboard-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">

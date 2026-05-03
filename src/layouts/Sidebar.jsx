@@ -52,7 +52,19 @@ export default function Sidebar() {
                             <MdPeople className="text-xl" />
                             <span>Customers</span>
                         </NavLink>
-                    </li>
+            </li>
+              <NavLink to="/400" className={menuClass}>
+              <li className="flex items-center gap-4">Error 400</li>
+            </  NavLink>
+                
+            <NavLink to="/401" className={menuClass}>
+              <li className="flex items-center gap-4">Error 401</li>
+            </  NavLink>
+                
+            <NavLink to="/403" className={menuClass}>
+              <li className="flex items-center gap-4">Error 403</li>
+                      </NavLink>
+            
     </ul>
 </div>
 
