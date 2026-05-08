@@ -6,7 +6,7 @@ import { BsFillExclamationDiamondFill } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
 
 export default function Login() {
-
+    /* navigate, state & handleChange*/
     const navigate = useNavigate() 
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
@@ -22,6 +22,7 @@ export default function Login() {
             [name]: value,
         })
     }
+    /* process form */
 	const handleSubmit = async (e) => {
 		        e.preventDefault()
 		
@@ -55,7 +56,7 @@ export default function Login() {
 		            });
 	
 		    }
-
+            /* error & loading status */
             const errorInfo = error ? (
 		    <div className="bg-red-200 mb-5 p-5 text-sm font-light text-gray-600 rounded flex items-center">
 		        <BsFillExclamationDiamondFill className="text-red-600 me-2 text-lg" />
