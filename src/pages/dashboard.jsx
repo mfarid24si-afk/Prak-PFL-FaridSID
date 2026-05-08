@@ -111,7 +111,7 @@ export default function Dashboard() {
                         <tbody className="text-gray-700 text-sm">
                             <tr className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                                 <td className="py-5 font-bold flex items-center gap-3">
-                                    <img src="https://liara.run" className="w-8 h-8 rounded-full" />
+                                    <img src="public/img/atmin.jpg" className="w-8 h-8 rounded-full" />
                                     Raihan Ghafari
                                 </td>
                                 <td className="py-5 text-gray-400">#12345</td>
@@ -123,7 +123,7 @@ export default function Dashboard() {
                             </tr>
                             <tr className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                                 <td className="py-5 font-bold flex items-center gap-3">
-                                    <img src="https://liara.run" className="w-8 h-8 rounded-full" />
+                                    <img src="public/img/images.jpg" className="w-8 h-8 rounded-full" />
                                     Samantha
                                 </td>
                                 <td className="py-5 text-gray-400">#12346</td>

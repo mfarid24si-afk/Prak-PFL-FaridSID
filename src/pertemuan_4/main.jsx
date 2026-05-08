@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import frameworkData from "./framework.json";
 import FrameworkList from './FrameworkList';
 import FrameworkListSearchFilter from './FrameworkListSearchFilter';
-import ResponsiveDesign from './ResponsiveDesign';
+import ResponsqiveDesign from './ResponsiveDesign';
 import './tailwind.css';
 
 
