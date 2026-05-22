@@ -12,7 +12,7 @@ import Loading from "./components/Loading";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
 const Orders = React.lazy(() => import("./pages/Orders"))
 const Customers = React.lazy(() => import("./pages/Customers"))
-const ErrorPage = React.lazy(() => import("./pages/Errorpage"))   
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage"))   
 const NotFound = React.lazy(() => import("./pages/NotFound"))
 
 // Halaman auth menggunakan huruf kecil semua
