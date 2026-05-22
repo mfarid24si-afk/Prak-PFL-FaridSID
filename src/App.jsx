@@ -9,10 +9,10 @@ import AuthLayout from './layouts/AuthLayout';
 import Loading from "./components/Loading";
 
 // PERBAIKAN: Mengubah nama file menjadi huruf kecil sesuai folder src/pages/
-const Dashboard = React.lazy(() => import("./pages/dashboard"))
-const Orders = React.lazy(() => import("./pages/orders"))
-const Customers = React.lazy(() => import("./pages/customers"))
-const ErrorPage = React.lazy(() => import("./pages/errorpage"))   
+const Dashboard = React.lazy(() => import("./pages/Dashboard"))
+const Orders = React.lazy(() => import("./pages/Orders"))
+const Customers = React.lazy(() => import("./pages/Customers"))
+const ErrorPage = React.lazy(() => import("./pages/Errorpage"))   
 const NotFound = React.lazy(() => import("./pages/notfound"))
 
 // Halaman auth menggunakan huruf kecil semua
