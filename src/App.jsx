@@ -16,9 +16,9 @@ const ErrorPage = React.lazy(() => import("./pages/Errorpage"))
 const NotFound = React.lazy(() => import("./pages/NotFound"))
 
 // Halaman auth menggunakan huruf kecil semua
-const Register = React.lazy(() => import("./pages/auth/register"))
-const Login = React.lazy(() => import("./pages/auth/login"))
-const Forgot = React.lazy(() => import("./pages/auth/forgot"))
+const Register = React.lazy(() => import("./pages/auth/Register"))
+const Login = React.lazy(() => import("./pages/auth/Login"))
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"))
 
 // Halaman Produk (menggunakan huruf kapital P sesuai file baru kita)
 const Produk = React.lazy(() => import("./pages/Produk"))
