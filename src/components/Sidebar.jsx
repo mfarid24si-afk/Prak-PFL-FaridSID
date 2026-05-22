@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom"; 
-import { MdDashboard, MdListAlt, MdPeople } from "react-icons/md";
+// import { MdDashboard, MdListAlt, MdPeople } from "react-icons/md";
+import { MdDashboard, MdListAlt, MdPeople, MdInventory } from "react-icons/md"; 
 import { FaPlus } from "react-icons/fa"; // <--- TAMBAHKAN BARIS INI
 
 
@@ -53,6 +54,13 @@ export default function Sidebar() {
                             <span>Customers</span>
                         </NavLink>
             </li>
+                    <li>
+                        <NavLink to="/produk" className={menuClass}>
+                            <MdInventory className="text-xl" />
+                            <span>Products</span>
+                        </NavLink>
+            </li>
+
               <NavLink to="/400" className={menuClass}>
               <li className="flex items-center gap-4">Error 400</li>
             </  NavLink>

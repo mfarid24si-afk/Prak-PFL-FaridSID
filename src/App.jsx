@@ -24,7 +24,8 @@ const NotFound = React.lazy(() => import("./pages/NotFound"))
 const Register = React.lazy(() => import("./pages/auth/register"))
 const Login = React.lazy(() => import("./pages/auth/login"))
 const Forgot = React.lazy(() => import("./pages/auth/forgot"))
-
+const Produk = React.lazy(() => import("./pages/Produk"))
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
             <Route path="/403" element={<ErrorPage code="403" description="Forbidden: Area terlarang buat umum!" image="/img/error-403.png" />} />
             <Route path="*" element={<ErrorPage code="404" description="Not Found: Halamannya lari entah ke mana." image="/img/error-404.png" />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/produk" element={<Produk />} />
+            <Route path="/products/:id" element={<ProductDetail />} /> 
             <Route path="/" element={<Dashboard />} />
             <Route path="/Orders" element={<Orders />} />
             <Route path="/Customers" element={<Customers />} />
