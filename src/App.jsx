@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import Loading from "./components/Loading";
+import Components from "./pages/Components";
 
 // PERBAIKAN: Mengubah nama file menjadi huruf kecil sesuai folder src/pages/
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
@@ -33,6 +34,7 @@ function App() {
           <Route path="/401" element={<ErrorPage code="401" description="Unauthorized: Kamu nggak punya kunci masuk sini." image="/img/error-401.png" />} />
           <Route path="/403" element={<ErrorPage code="403" description="Forbidden: Area terlarang buat umum!" image="/img/error-403.png" />} />
           
+          <Route path="/components" element={<Components />} />
           <Route path="/produk" element={<Produk />} />
           <Route path="/products/:id" element={<ProductDetail />} /> 
           <Route path="/" element={<Dashboard />} />
