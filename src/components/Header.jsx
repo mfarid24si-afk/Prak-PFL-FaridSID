@@ -33,7 +33,7 @@ export default function Header() {
 
                 <div id="profile-container" className="flex items-center gap-3">
                     <span id="profile-text" className="text-sm font-bold text-gray-800">
-                        Hello, <b className="font-extrabold text-green-600">Farid</b>
+                        Hai, <b className="font-extrabold text-green-600">Farid</b>
                     </span>
                     <img
             src="public/img/ayam.png"
