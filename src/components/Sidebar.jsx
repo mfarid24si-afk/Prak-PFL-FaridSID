@@ -13,11 +13,10 @@ import { FaPlus } from "react-icons/fa";
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
     `flex cursor-pointer items-center rounded-xl p-4  space-x-2
-        ${
-          isActive
-            ? "text-hijau bg-green-200 font-extrabold"
-            : "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
-        }`;
+        ${isActive
+      ? "text-hijau bg-green-200 font-extrabold"
+      : "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+    }`;
 
   return (
     <div
@@ -82,6 +81,12 @@ export default function Sidebar() {
           </li>
           {/* ---------------------------------- */}
 
+          <li>
+            <NavLink to="/fiturxyz" className={menuClass}>
+              <MdExtension className="text-xl" />
+              <span>Fitur-xyz</span>
+            </NavLink>
+          </li>
           <NavLink to="/400" className={menuClass}>
             <li className="flex items-center gap-4">Error 400</li>
           </NavLink>

@@ -8,6 +8,7 @@ import MainLayout from './layouts/MainLayout';
 import AuthLayout from './layouts/AuthLayout';
 import Loading from "./components/Loading";
 import Components from "./pages/Components";
+import Fiturxyz from "./pages/Fiturxyz";
 
 // PERBAIKAN: Mengubah nama file menjadi huruf kecil sesuai folder src/pages/
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/Orders" element={<Orders />} />
           <Route path="/Customers" element={<Customers />} />
+          <Route path="/Fiturxyz" element={<Fiturxyz />} />
           
           {/* Posisi rute jebakan '*' dipindah ke paling bawah agar tidak memblokir rute lain */}
           <Route path="*" element={<NotFound />} />

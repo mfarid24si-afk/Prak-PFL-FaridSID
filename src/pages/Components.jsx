@@ -105,14 +105,15 @@ export default function Components() {
             <h3 className="text-lg font-semibold">2. Product Card</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <ProductCard
-                image="https://unsplash.com"
+                image="https://images.unsplash.com/photo-1542291026-7eec264c27ff"
                 title="Sepatu Sport"
                 category="Fashion"
                 price="Rp 450.000"
                 description="Sepatu sport modern dengan desain nyaman dan ringan untuk aktivitas sehari-hari."
               />
+
               <ProductCard
-                image="https://unsplash.com"
+                image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
                 title="Smartphone"
                 category="Elektronik"
                 price="Rp 4.500.000"
@@ -158,33 +159,33 @@ export default function Components() {
             <h3 className="text-lg font-semibold">1. Alert Notification</h3>
             <Alert type="success">Data produk berhasil disimpan ke dalam database!</Alert>
             <Alert type="danger">Terjadi kesalahan koneksi sistem. Silakan coba kembali.</Alert>
-            
+
             <h3 className="text-lg font-semibold pt-2">2. Loading Indicator</h3>
             <Loading />
 
             <h3 className="text-lg font-semibold pt-2">3. Modal Dialog</h3>
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"
             >
               Buka Modal Dialog
             </button>
 
-            <Modal 
-              isOpen={isModalOpen} 
-              onClose={() => setIsModalOpen(false)} 
+            <Modal
+              isOpen={isModalOpen}
+              onClose={() => setIsModalOpen(false)}
               title="Konfirmasi Penghapusan"
             >
               <p className="text-gray-600 mb-4">Apakah Anda yakin ingin menghapus data produk ini secara permanen?</p>
               <div className="flex justify-end gap-2">
-                <button 
-                  onClick={() => setIsModalOpen(false)} 
+                <button
+                  onClick={() => setIsModalOpen(false)}
                   className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg"
                 >
                   Batal
                 </button>
-                <button 
-                  onClick={() => { alert("Data dihapus!"); setIsModalOpen(false); }} 
+                <button
+                  onClick={() => { alert("Data dihapus!"); setIsModalOpen(false); }}
                   className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
                 >
                   Ya, Hapus
