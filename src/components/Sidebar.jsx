@@ -8,7 +8,7 @@ import {
   MdInventory,
   MdExtension,
 } from "react-icons/md";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaFire } from "react-icons/fa";
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
@@ -83,10 +83,11 @@ export default function Sidebar() {
 
           <li>
             <NavLink to="/fiturxyz" className={menuClass}>
-              <MdEGiFireAce className="text-xl" />
+              <FaFire className="text-xl" /> {/* Ganti ke FaFire */}
               <span>Fitur-xyz</span>
             </NavLink>
           </li>
+
           <NavLink to="/400" className={menuClass}>
             <li className="flex items-center gap-4">Error 400</li>
           </NavLink>
