@@ -83,7 +83,7 @@ export default function Sidebar() {
 
           <li>
             <NavLink to="/fiturxyz" className={menuClass}>
-              <MdExtension className="text-xl" />
+              <MdEGiFireAce className="text-xl" />
               <span>Fitur-xyz</span>
             </NavLink>
           </li>
