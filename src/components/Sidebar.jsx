@@ -9,6 +9,7 @@ import {
   MdExtension,
 } from "react-icons/md";
 import { FaPlus, FaFire } from "react-icons/fa";
+import { NotebookPenIcon } from "lucide-react";
 
 export default function Sidebar() {
   const menuClass = ({ isActive }) =>
@@ -85,6 +86,13 @@ export default function Sidebar() {
             <NavLink to="/fiturxyz" className={menuClass}>
               <FaFire className="text-xl" /> {/* Ganti ke FaFire */}
               <span>Fitur-xyz</span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/note" className={menuClass}>
+              <NotebookPenIcon className="text-xl" /> {/* Ganti ke FaFire */}
+              <span>Note</span>
             </NavLink>
           </li>
 
